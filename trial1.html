@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malak's 3-Week Intensive Learning Schedule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            direction: ltr;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2193b0, #6dd5ed);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .week-section {
+            padding: 20px;
+            border-bottom: 3px solid #f0f0f0;
+        }
+        
+        .week-header {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .week-title {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        .week-deadline {
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        
+        .day-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .day-card {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 400px;
+            transition: all 0.3s ease;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        
+        .day-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .time-slot {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .time-slot:hover {
+            background: #f0f7ff;
+            border-color: #667eea;
+        }
+        
+        .time-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #667eea;
+            font-size: 0.9em;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #667eea;
+            border-radius: 4px;
+            margin-right: 8px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .task-content {
+            font-size: 0.85em;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+        
+        .task-duration {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .prayer-slot {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            border: 2px solid #f39c12;
+        }
+        
+        .prayer-slot .time-header {
+            color: #d35400;
+        }
+        
+        .docker-slot {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 2px solid #2196F3;
+        }
+        
+        .linux-beginner-slot {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            border: 2px solid #9c27b0;
+        }
+        
+        .linux-admin-slot {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border: 2px solid #4caf50;
+        }
+        
+        .comptia-slot {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border: 2px solid #ff9800;
+        }
+        
+        .notes-section {
+            background: #fff9e6;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .notes-header {
+            font-weight: bold;
+            color: #f39c12;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .notes-content {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .milestone {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            border: 2px solid #333;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .day-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Malak's 3-Week Intensive Learning Schedule</h1>
+            <p>Docker + Linux Mastery | Dec 17 - Jan 7, 2025</p>
+            <p style="margin-top: 10px; font-size: 1em;">⏰ Work Hours: 10:00 AM - 5:00 PM | Sun-Thu (Egypt)</p>
+        </div>
+
+        <!-- WEEK 1 -->
+        <div class="week-section">
+            <div class="week-header">
+                <span class="week-title">📅 WEEK 1: Docker Foundation + Linux Basics</span>
+                <span class="week-deadline">⚠️ DEADLINE: Dec 25</span>
+            </div>
+            
+            <div class="day-grid">
+                <!-- Wednesday Dec 17 -->
+                <div class="day-card">
+                    <div class="day-header">Wed Dec 17</div>
+                    
+                    <div class="time-slot docker-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 🐳</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Docker: Introduction</div>
+                            <div class="task-duration">Base Commands (15min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #1</div>
+                            <div class="task-duration">Introduction (~8min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Practice & Apply</div>
+                            <div class="task-duration">Work on real tasks</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #1</div>
+                            <div class="task-duration">Linux Overview (~25min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #1</div>
+                            <div class="task-duration">Admin Basics (~25min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thursday Dec 18 -->
+                <div class="day-card">
+                    <div class="day-header">Thu Dec 18</div>
+                    
+                    <div class="time-slot docker-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 🐳</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Docker: Containers</div>
+                            <div class="task-duration">Working with Images (15min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #2</div>
+                            <div class="task-duration">File System (~10min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Docker Practice</div>
+                            <div class="task-duration">Test commands</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #2</div>
+                            <div class="task-duration">Installation (~30min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #2</div>
+                            <div class="task-duration">User Management (~28min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunday Dec 21 -->
+                <div class="day-card">
+                    <div class="day-header">Sun Dec 21</div>
+                    
+                    <div class="time-slot docker-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 🐳</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Docker: Networking</div>
+                            <div class="task-duration">Container Networks (15min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #3</div>
+                            <div class="task-duration">Basic Commands (~12min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Project Work</div>
+                            <div class="task-duration">Apply Docker Project 1</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #3</div>
+                            <div class="task-duration">Package Management (~28min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #3</div>
+                            <div class="task-duration">Permissions (~30min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monday Dec 22 -->
+                <div class="day-card">
+                    <div class="day-header">Mon Dec 22</div>
+                    
+                    <div class="time-slot docker-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 🐳</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Docker: Volumes</div>
+                            <div class="task-duration">Data Persistence (15min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #4</div>
+                            <div class="task-duration">File Operations (~9min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Project Work</div>
+                            <div class="task-duration">Apply Docker Project 2</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #4</div>
+                            <div class="task-duration">System Architecture (~32min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #4</div>
+                            <div class="task-duration">Process Management (~27min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuesday Dec 23 -->
+                <div class="day-card">
+                    <div class="day-header">Tue Dec 23</div>
+                    
+                    <div class="time-slot docker-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 🐳</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Docker: Compose</div>
+                            <div class="task-duration">Multi-Container (15min)</div>
+                            <div class="milestone">✅ DOCKER COMPLETE!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #5</div>
+                            <div class="task-duration">Text Editors (~11min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Docker Projects</div>
+                            <div class="task-duration">Finalize both projects</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #5</div>
+                            <div class="task-duration">Command Line (~25min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #5-6</div>
+                            <div class="task-duration">Networking Basics (~50min)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notes-section">
+                <div class="notes-header">📝 Week 1 Completion Notes:</div>
+                <div class="notes-content">
+                    <strong>✅ Must Complete by Dec 25:</strong><br>
+                    • Docker: ALL 5 sessions COMPLETE ✅<br>
+                    • Linux Beginner: Videos 1-5 DONE<br>
+                    • CompTIA Linux+: Videos 1-5 DONE<br>
+                    • Linux Admin Part 1: Videos 1-6 DONE<br>
+                    • Both Docker projects deployed<br>
+                    <strong>🎯 Milestone:</strong> Docker mastered + Linux basics solid
+                </div>
+            </div>
+        </div>
+
+        <!-- WEEK 2 -->
+        <div class="week-section">
+            <div class="week-header">
+                <span class="week-title">📅 WEEK 2: Advanced Linux + Admin Skills</span>
+                <span class="week-deadline">⚠️ DEADLINE: Jan 1</span>
+            </div>
+            
+            <div class="day-grid">
+                <!-- Wednesday Dec 24 -->
+                <div class="day-card">
+                    <div class="day-header">Wed Dec 24</div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #6-7</div>
+                            <div class="task-duration">Shell Scripting (~18min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #8</div>
+                            <div class="task-duration">Grep & Find (~10min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Practice Scripts</div>
+                            <div class="task-duration">Write automation</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #6-7</div>
+                            <div class="task-duration">File Management (~55min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #7-8</div>
+                            <div class="task-duration">Storage & Filesystems (~55min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thursday Dec 25 -->
+                <div class="day-card">
+                    <div class="day-header">Thu Dec 25</div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #9-10</div>
+                            <div class="task-duration">Pipes & Redirection (~20min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #11</div>
+                            <div class="task-duration">Environment Variables (~8min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Memphis Linux</div>
+                            <div class="task-duration">Practice on real system</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #8-9</div>
+                            <div class="task-duration">Users & Groups (~60min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #9-10</div>
+                            <div class="task-duration">Services & Daemons (~58min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunday Dec 28 -->
+                <div class="day-card">
+                    <div class="day-header">Sun Dec 28</div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #12-13</div>
+                            <div class="task-duration">Archive & Compression (~22min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #14</div>
+                            <div class="task-duration">Networking Basics (~13min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">System Tasks</div>
+                            <div class="task-duration">Real admin work</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #10-11</div>
+                            <div class="task-duration">Security Basics (~58min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #11-12</div>
+                            <div class="task-duration">System Logs (~56min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monday Dec 29 -->
+                <div class="day-card">
+                    <div class="day-header">Mon Dec 29</div>
+                    
+                    <div class="time-slot linux-beginner-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 💻</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Beginner #15</div>
+                            <div class="task-duration">Final Review (~6min)</div>
+                            <div class="milestone">✅ LINUX BEGINNER DONE!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #12</div>
+                            <div class="task-duration">Scripting (~30min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Script Projects</div>
+                            <div class="task-duration">Automate daily tasks</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #13-14</div>
+                            <div class="task-duration">Advanced Topics (~62min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #13-14</div>
+                            <div class="task-duration">Security & Firewalls (~58min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuesday Dec 30 -->
+                <div class="day-card">
+                    <div class="day-header">Tue Dec 30</div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #15-16</div>
+                            <div class="task-duration">System Performance (~65min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #17</div>
+                            <div class="task-duration">Troubleshooting (~28min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Troubleshooting Lab</div>
+                            <div class="task-duration">Fix real system issues</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #18-19</div>
+                            <div class="task-duration">Backup & Recovery (~58min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 1 #15-18</div>
+                            <div class="task-duration">Final Topics (~120min)</div>
+                            <div class="milestone">✅ ADMIN PART 1 DONE!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notes-section">
+                <div class="notes-header">📝 Week 2 Completion Notes:</div>
+                <div class="notes-content">
+                    <strong>✅ Must Complete by Jan 1:</strong><br>
+                    • Linux Beginner: ALL 15 videos COMPLETE ✅<br>
+                    • CompTIA Linux+: Videos 6-19 DONE<br>
+                    • Linux Admin Part 1: ALL 18 videos COMPLETE ✅<br>
+                    <strong>🎯 Milestone:</strong> Linux foundation solid + Admin Part 1 mastered
+                </div>
+            </div>
+        </div>
+
+        <!-- WEEK 3 -->
+        <div class="week-section">
+            <div class="week-header">
+                <span class="week-title">📅 WEEK 3: Advanced Admin + Final Push</span>
+                <span class="week-deadline">⚠️ FINAL DEADLINE: Jan 7</span>
+            </div>
+            
+            <div class="day-grid">
+                <!-- Wednesday Dec 31 -->
+                <div class="day-card">
+                    <div class="day-header">Wed Dec 31</div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #20-21</div>
+                            <div class="task-duration">Virtualization (~68min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #22</div>
+                            <div class="task-duration">Cloud Concepts (~32min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Production Work</div>
+                            <div class="task-duration">Apply all skills</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #23-24</div>
+                            <div class="task-duration">Automation (~60min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 2 #1-3</div>
+                            <div class="task-duration">Advanced Networking (~90min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thursday Jan 1 -->
+                <div class="day-card">
+                    <div class="day-header">Thu Jan 1</div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #25-26</div>
+                            <div class="task-duration">Final Topics (~70min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot comptia-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 📚</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">CompTIA Linux+ #27</div>
+                            <div class="task-duration">Review (~25min)</div>
+                            <div class="milestone">✅ COMPTIA DONE!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Skills Integration</div>
+                            <div class="task-duration">Complex real tasks</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 2 #4-5</div>
+                            <div class="task-duration">Advanced Security (~70min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 2 #6-7</div>
+                            <div class="task-duration">Performance Tuning (~75min)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunday Jan 4 -->
+                <div class="day-card">
+                    <div class="day-header">Sun Jan 4</div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-11:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 2 #8-9</div>
+                            <div class="task-duration">High Availability (~68min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>11:00-11:38 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 2 #10</div>
+                            <div class="task-duration">Monitoring (~32min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 ⚙️</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Memphis Linux Setup</div>
+                            <div class="task-duration">Production environment</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 2 #11-12</div>
+                            <div class="task-duration">Disaster Recovery (~72min)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot linux-admin-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🔧</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Linux Admin Part 2 #13-15</div>
+                            <div class="task-duration">Final Topics (~100min)</div>
+                            <div class="milestone">✅ ADMIN PART 2 DONE!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monday Jan 5 -->
+                <div class="day-card">
+                    <div class="day-header">Mon Jan 5</div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-12:00 🎯</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Comprehensive Review</div>
+                            <div class="task-duration">All Linux concepts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 🚀</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Final Projects</div>
+                            <div class="task-duration">Build complete system</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 📝</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Documentation</div>
+                            <div class="task-duration">Create personal notes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🎓</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Practice Tests</div>
+                            <div class="task-duration">CompTIA practice exams</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuesday Jan 6 -->
+                <div class="day-card">
+                    <div class="day-header">Tue Jan 6</div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>10:00-12:00 💪</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Advanced Scenarios</div>
+                            <div class="task-duration">Complex troubleshooting</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 11:38-12:00</div>
+                        <div class="task-content">Dhuhr Prayer + Breakfast</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>12:00-14:00 🔥</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Production Ready</div>
+                            <div class="task-duration">Real-world application</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>14:00-14:38 ✅</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Skills Assessment</div>
+                            <div class="task-duration">Self-evaluation</div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slot prayer-slot">
+                        <div class="time-header">🕌 14:38-15:00</div>
+                        <div class="task-content">Asr Prayer + Snack</div>
+                    </div>
+                    
+                    <div class="time-slot">
+                        <div class="time-header">
+                            <div class="checkbox"></div>
+                            <span>15:00-17:00 🎉</span>
+                        </div>
+                        <div class="task-content">
+                            <div class="task-title">Final Mastery Check</div>
+                            <div class="task-duration">Complete all objectives</div>
+                            <div class="milestone">🏆 ALL TRAINING COMPLETE!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notes-section">
+                <div class="notes-header">📝 Week 3 Completion Notes:</div>
+                <div class="notes-content">
+                    <strong>✅ Must Complete by Jan 7:</strong><br>
+                    • CompTIA Linux+: ALL 27 videos COMPLETE ✅<br>
+                    • Linux Admin Part 2: ALL 15 videos COMPLETE ✅<br>
+                    • Docker: Fully integrated ✅<br>
+                    • Memphis Linux: Production-ready ✅<br>
+                    <strong>🎯 FINAL:</strong> Complete Linux + Docker + Admin mastery!<br>
+                    <strong>🚀 OUTCOME:</strong> Enterprise Linux administration ready
+                </div>
+            </div>
+        </div>
+
+        <!-- LEGEND -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);"></div>
+                <span>🐳 Docker</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);"></div>
+                <span>💻 Linux Beginner</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);"></div>
+                <span>📚 CompTIA Linux+</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);"></div>
+                <span>🔧 Linux Admin</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: linear-gradient(135deg, #ffeaa7, #fdcb6e);"></div>
+                <span>🕌 Prayer Times</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add checkbox functionality
+        document.querySelectorAll('.checkbox').forEach(checkbox => {
+            checkbox.addEventListener('click', function() {
+                this.style.background = this.style.background ? '' : 'linear-gradient(135deg, #667eea, #764ba2)';
+                this.innerHTML = this.innerHTML ? '' : '✓';
+                this.style.color = 'white';
+                this.style.display = 'flex';
+                this.style.alignItems = 'center';
+                this.style.justifyContent = 'center';
+                this.style.fontWeight = 'bold';
+            });
+        });
+    </script>
+</body>
+</html>
